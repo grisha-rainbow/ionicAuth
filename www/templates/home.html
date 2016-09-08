@@ -1,0 +1,48 @@
+<ion-view view-title="Sound Recorder">
+    <a href="/profile" >Edit profile</a>
+  <ion-content class="padding">
+    <!--
+    <div>
+      <ion-list>
+        <ion-item ng-repeat="sound in sounds">
+          {{sound.name}}
+          <ion-option-button class="button-assertive">Delete</ion-option-button>
+
+        </ion-item>
+      </ion-list>
+
+    </div>
+
+    <a href="#/new" class="button button-balanced button-block">Record New Sound</a><br> -->
+
+    <div class="list">
+      <p>
+        Sort by:
+        <select ng-model="orderBy">
+          <option>from</option>
+          <option>content</option>
+          <option>timestamp</option>
+        </select>
+      </p>
+      <p>Search: <input ng-model="searchText"></p>
+
+
+      </ul>
+      <li ng-repeat="message in messages | orderBy: orderBy | filter: searchText">
+        {{ message.from }}: {{ message.content }}
+
+        <a href="" ng-click="messages.$remove(message)">X</a>
+      </li>
+    </div>
+    <form >
+      <label class="item item-input">
+        <input type="text" ng-model="message">
+      </label><br>
+      <button ng-click="addMessage(message)">Add Message</button>
+    </form><br>
+    {{ profile | json }}
+    <label class="item item-input">
+      <input ng-model="profile.name" ng-change="profile.$save()" type="text" />
+    </label>
+  </ion-content>
+</ion-view>

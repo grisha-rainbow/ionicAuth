@@ -1,0 +1,60 @@
+<ion-view view-title="Record new sound">
+  <ion-content class="padding">
+    <button ng-click="googleSignIn()" class="button  button-full button-assertive">
+      Submit with google
+    </button>
+    <div class="list" ng-hide="signView">
+      <label class="item item-input">
+        <input type="text" placeholder="Email" ng-model="email">
+      </label>
+      <label class="item item-input">
+        <input type="password" placeholder="Password" ng-model="password">
+      </label>
+    </div>
+    <button class="button  button-full button-positive" ng-click="createUser(email, password)">
+      Create user
+    </button>
+
+    <br><br>
+
+    <button class="button" ng-click="deleteUser()">Delete user</button>
+
+    <p ng-if="message">Message: <strong>{{ message }}</strong></p>
+    <p ng-if="error">Error: <strong>{{ error }}</strong></p>
+
+    <div>
+      <button ng-click="signIn()">Sign in anonymously</button>
+
+      <p ng-if="firebaseUser">
+        Signed in user: <strong>{{ firebaseUser.uid }}</strong>
+        Error: <strong>{{ error }}</strong>
+      </p>
+
+    </div>
+
+    <div ng-show="firebaseUser">
+      <p>Hello, {{ firebaseUser.displayName }}</p>
+      <button ng-click="auth.$signOut()">Sign Out</button>
+    </div>
+    <div ng-hide="firebaseUser">
+      <p>Welcome, please sign in.</p>
+      <button ng-click="auth.$signInWithPopup('facebook')">Sign In with Facebook</button>
+
+    </div>
+<!--
+    <div class="list" ng-show="signView">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">First Name</span>
+        <input type="text" placeholder="First Name">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Last Name</span>
+        <input type="text" placeholder="Last Name">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Email</span>
+        <input type="text" placeholder="Email">
+      </label>
+    </div> -->
+  </ion-content>
+</ion-view>

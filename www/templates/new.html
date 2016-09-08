@@ -1,0 +1,22 @@
+<ion-view view-title="Record new sound">
+  <ion-content class="padding">
+    <div class="row">
+      <div class="col">
+        <label class="item item-input">
+          <input type="text" ng-model="sound.name" placeholder="Name">
+        </label>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <button class="button button-block button-positive" ng-click="recordAudio()">Record</button>
+        </div>
+
+        <div class="col">
+          <button class="button button-block button-balanced icon-left ion-play" ng-click="play()">Play</button>
+        </div>
+
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
